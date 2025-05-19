@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# Chef Mistral
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Chef Mistral is a React web app that helps you generate creative recipes based on the ingredients you have on hand. Powered by Hugging Face's Mistral AI, it suggests recipes using your input and displays them in a readable markdown format.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Add ingredients to your list
+- Get recipe suggestions using Mistral AI
+- Clean, responsive UI
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [npm](https://www.npmjs.com/)
 
-### `npm test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/branesh2k/Chef-Mitral-webapp.git
+   cd chef_mistral
+   ```
 
-### `npm run build`
+2. **Install dependencies:**
+   ```sh
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. **Set up your Hugging Face API token:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Sign up or log in at [Hugging Face](https://huggingface.co/).
+   - Go to [Access Tokens](https://huggingface.co/settings/tokens) and create a new token with "read" access.
+   - Create a `.env` file in the root of the project and add your token:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+     ```
+     REACT_APP_HF_ACCESS_TOKEN=your_huggingface_access_token_here
+     ```
 
-### `npm run eject`
+   - **Note:** You need access to the `mistralai/Mistral-7B-Instruct-v0.3` model on Hugging Face. Some models may require you to request access or accept terms.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Start the development server:**
+   ```sh
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Open your browser and visit:**
+   ```
+   http://localhost:3000
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Enter ingredients one by one and click "Add ingredient".
+2. Once you have at least 4 ingredients, click "Get a recipe" to generate a recipe suggestion.
+3. The recipe will be displayed below in a readable format.
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `src/components/` – React components (UI)
+- `src/ai.js` – Handles communication with Hugging Face's Mistral AI
+- `.env` – **Not committed to git**; stores your Hugging Face API token
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Environment Variables
 
-### Code Splitting
+- **REACT_APP_HF_ACCESS_TOKEN**  
+  Your Hugging Face access token.  
+  Example `.env` file:
+  ```
+  REACT_APP_HF_ACCESS_TOKEN=hf_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
 
-### Analyzing the Bundle Size
+This project is for educational/demo purposes.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+**Note:**  
+If you encounter a `401 Unauthorized` error, ensure your token is valid, has access to the Mistral model, and is correctly set in your `.env` file. Restart the development server after any changes to `.env`.
