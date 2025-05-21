@@ -11,7 +11,7 @@ export default function IngredientsList(props){
                 <ul className="ingredients-list" aria-live="polite">{ingredientsListItems}</ul>
                 {
                 props.ingredients.length>3 &&
-                <div className="get-recipe-container">
+                <div ref={props.ref} className="get-recipe-container">
                     <h3>Ready for a recipe?</h3>
                     <div>
                         <p>Generate a recipe from your list of ingredients</p>

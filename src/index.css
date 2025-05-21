@@ -90,16 +90,22 @@ ul.ingredients-list > li{
 }
 .get-recipe-container button {
     border: none;
-    border-radius: 6px;
+    border-radius: 60px;
     background: #D17557;
-    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
     color: #FAFAF8;
     padding: 9px 17px;
     font-family: Inter, sans-serif;
     font-size: 0.875rem;
     cursor: pointer;
+    transition: all 0.1s ease;
 }
 
+.get-recipe-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.1);
+    background: #C06A4D;
+}
 .suggested-recipe-container {
     color: #475467;
     line-height: 28px;
